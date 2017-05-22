@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
-import Calendar from './calendar';
+import Calendar from './calendar.jsx';
+import _omit from 'lodash/omit'
+import moment from 'moment'
 
 import calendarStyles from './scss/input-moment.scss'
 
@@ -21,7 +23,7 @@ export default class calendarConainer extends React.Component {
     this.momentInstance = moment();
   }
   render() {
-    var props = _.omit(this.props, 'className', 'moment', 'prevMonthIcon', 'nextMonthIcon', 'onSave', 'skus', 'mapDate2Price', 'priceSymbol');
+    var props = _omit(this.props, 'className', 'moment', 'prevMonthIcon', 'nextMonthIcon', 'onSave', 'skus', 'mapDate2Price', 'priceSymbol');
     props.className = cx(calendarStyles['m-input-moment'], this.props.className);
     return (
       <div {...props}>

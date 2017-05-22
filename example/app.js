@@ -1,10 +1,10 @@
-require('../src/scss/input-moment.less');
-require('./app.less');
+require('../src/scss/input-moment.scss');
+require('./app.scss');
 
 var moment = require('moment');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var InputMoment = require('../src/input-moment');
+var InputMoment = require('../src/calendarConainer.jsx');
 var packageJson = require('../package.json');
 
 var skus = [

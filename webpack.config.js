@@ -1,3 +1,4 @@
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     'dist/input-moment': './index.js',
@@ -8,11 +9,35 @@ module.exports = {
     filename: '[name].js',
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+    rules: [
+      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
+      {
+        test: /\.jsx?$/, exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: ["es2015", "react", "stage-0"]
+        }
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader'
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
+        })
+      }
     ]
   },
   externals: {
@@ -20,5 +45,12 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'moment': 'moment',
   },
-  devtool: 'cheap-module-eval-source-map'
+  devtool: 'cheap-module-eval-source-map',
+  plugins: [
+    new ExtractTextPlugin({
+      filename: "[name].css?[hash]-[chunkhash]-[contenthash]-[name]",
+      disable: false,
+      allChunks: true
+    }),
+  ]
 };

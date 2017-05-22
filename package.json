@@ -1,12 +1,12 @@
 {
-  "name": "input-moment",
-  "version": "0.3.2",
-  "description": "React datetime picker powered by momentjs",
+  "name": "react-calendar-price",
+  "version": "0.1.0",
+  "description": "React calendar with price or some message",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server -c --port=8888",
     "build-js": "babel src --out-dir lib && webpack -p",
-    "build-css": "lessc --clean-css src/less/input-moment.less dist/input-moment.css",
+    "build-css": "sass src/scss/input-moment.scss dist/input-moment.css",
     "build": "npm run build-js && npm run build-css",
     "deploy": "npm run build && github-pages-deploy",
     "test": "jest",
@@ -15,7 +15,7 @@
   "github-pages-deploy": {
     "src": "example"
   },
-  "author": "Wang Zuo",
+  "author": "zhZhang",
   "license": "ISC",
   "peerDependencies": {
     "moment": "^2.10.6",
@@ -32,26 +32,25 @@
     "github-pages-deploy": "0.0.3",
     "jest": "^19.0.2",
     "json-loader": "^0.5.4",
-    "less": "^2.5.3",
-    "less-loader": "^2.2.1",
-    "less-plugin-clean-css": "^1.5.1",
     "moment": "^2.17.1",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-test-renderer": "^15.4.2",
+    "sass-loader": "^6.0.5",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.3",
+    "webpack": "^2.5.1",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "blacklist": "^1.1.4",
     "classnames": "^2.2.0",
-    "lodash": "^4.17.4",
-    "react-input-slider": "^1.5.0"
+    "extract-text-webpack-plugin": "^2.1.0",
+    "lodash": "^4.17.4"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wangzuo/input-moment.git"
+    "url": "git+https://github.com/Dcatfly/react-calendar-price.git"
   },
   "keywords": [
     "react",
@@ -59,10 +58,10 @@
     "input",
     "datetime",
     "picker",
-    "moment"
+    "price"
   ],
   "bugs": {
-    "url": "https://github.com/wangzuo/input-moment/issues"
+    "url": "https://github.com/Dcatfly/react-calendar-price/issues"
   },
-  "homepage": "https://github.com/wangzuo/input-moment#readme"
+  "homepage": "https://github.com/Dcatfly/react-calendar-price#readme"
 }
