@@ -20,7 +20,7 @@ class Day extends React.Component {
     var w = this.props.w;
     var prevMonth = (w === 0 && i > 7);
     var nextMonth = (w >= 4 && i <= 14);
-    var props = _omit(this.props, 'i', 'w', 'className', 'mapDate2Price', 'momentInstance', 'priceSymbol');
+    var props = _omit(this.props, 'i', 'w', 'className', 'mapDate2Price', 'momentInstance', 'priceSymbol', 'styleNamespace');
     var momentInstance = this.props.momentInstance.clone();
     var price = '', classNameObj = {};
 
@@ -65,7 +65,8 @@ export default class Calendar extends React.Component {
     let skus = this.props.skus;
     let startDate, endDate, dayHash, map = {};
     skus && skus.forEach((sku) => {
-      sku.attributes.forEach((attr) => {
+      debugger
+      Array.from(sku.attributes).forEach((attr) => {
         if (attr.name == 'openDateRange') {
           dayHash = attr.value.dayHash;
           startDate = moment(attr.value.startDate);

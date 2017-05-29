@@ -1,10 +1,10 @@
-require('../src/scss/input-moment.scss');
+// require('../src/scss/input-moment.scss');
 require('./app.scss');
 
 var moment = require('moment');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var InputMoment = require('../src/calendarConainer.jsx');
+import InputMoment from '../src/calendarConainer'
 var packageJson = require('../package.json');
 
 var skus = [
@@ -260,4 +260,4 @@ var App = React.createClass({
   }
 });
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

@@ -1,10 +1,11 @@
 import React from 'react';
 import cx from 'classnames';
-import Calendar from './calendar.jsx';
+import Calendar from './calendar';
 import _omit from 'lodash/omit'
 import moment from 'moment'
 
-import calendarStyles from './scss/input-moment.scss'
+import calendarStyles from './scss/input-moment'
+// console.log(calendarStyles)
 
 export default class calendarConainer extends React.Component {
   static defaultProps = {

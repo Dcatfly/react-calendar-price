@@ -1,1 +1,3 @@
-module.exports = require('./lib/calendarConainer');
+import CalendarConainer from './lib/calendarConainer'
+
+export {CalendarConainer};
